@@ -56,9 +56,9 @@
 
 
   <?php
-    if (isset($_POST['zapisz'])) 
+    if (isset($_POST['zapisz']))
     {
-      if ($_POST['rodzaj'] <= 3) 
+      if ($_POST['rodzaj'] < 2) 
        {
           $date_in =  $_POST['date_in'];
           $rodzaj =  $_POST['rodzaj'];
@@ -71,15 +71,15 @@
           $query = "INSERT INTO koszty(date_in,fl_rodzaj,kwota,rodzaj_koszt)
           VALUES('$date_in','$rodzaj','$kwota','$dane')";
           mysqli_query($db, $query)or die("1") ;
-     
+
         }
       else
         {
-          echo "<script language='javascript' type='text/javascript'>alert('Brak wybranej formy dokumentu'); </script>"; 
+          echo "<script language='javascript' type='text/javascript'>alert('Brak wybranej formy dokumentu'); </script>";
           header('refresh: 1;');
         }
 
-       
+
     }
   ?>
 
@@ -95,7 +95,7 @@
   					       <input placeholder="Data" name="date_in" type="date" tabindex="1" required autofocus>
                    <input type="radio" name="rodzaj" value="1"> KP
                    <input type="radio" name="rodzaj" value="2"> KW
-                   <input type="radio" name="rodzaj" value="3" checked="checked"> 
+                   <input type="radio" name="rodzaj" value="3" checked="checked">
             </div>
 				  </fieldset>
 				  <fieldset>
