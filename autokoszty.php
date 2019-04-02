@@ -58,7 +58,7 @@
   <?php
     if (isset($_POST['zapisz']))
     {
-      if ($_POST['rodzaj'] < 2) 
+      if ($_POST['rodzaj'] < 3) 
        {
           $date_in =  $_POST['date_in'];
           $rodzaj =  $_POST['rodzaj'];
