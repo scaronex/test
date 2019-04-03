@@ -117,7 +117,7 @@
                 echo '<option value="1">Rodzaj Kosztów</option>';
                 while($option = mysqli_fetch_assoc($query))
                 {
-                echo '<option value="'.$option['nazwa'].'">'.$option['nazwa'].'</option>';
+                echo '<option value="'.$option['id'].'">'.$option['nazwa'].'</option>';
                 $klient ='';
                 }
                 echo '</select>';
