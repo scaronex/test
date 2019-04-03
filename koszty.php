@@ -54,24 +54,35 @@
 
 <div class="all">
 
-
   <?php
     if (isset($_POST['zapisz']))
     {
-    $data =  $_POST['data'];
-    $rodzaj =  $_POST['rodzaj'];
-    $kwota =  $_POST['kwota'];
-    $dane =  $_POST['dane'];
+      if ($_POST['rodzaj'] < 3)
+       {
+          $date_in =  $_POST['date_in'];
+          $rodzaj =  $_POST['rodzaj'];
+          $kwota =  $_POST['kwota'];
+          $dane =  $_POST['dane'];
 
 
-    $db = mysqli_connect($host, $login,$pass, $dbname) or die("Błąd połączenia !") ;
-     mysqli_set_charset($db,"utf8");
-    $query = "INSERT INTO koszty(data,fl_rodzaj,kwota,rodzaj_koszt)
-     VALUES('$data','$rodzaj','$kwota','$dane')";
-    mysqli_query($db, $query)or die("1") ;
+          $db = mysqli_connect($host, $login,$pass, $dbname) or die("Błąd połączenia !") ;
+          mysqli_set_charset($db,"utf8");
+          $query = "INSERT INTO koszty(date_in,fl_rodzaj,kwota,rodzaj_koszt)
+          VALUES('$date_in','$rodzaj','$kwota','$dane')";
+          mysqli_query($db, $query)or die("1") ;
+
+        }
+      else
+        {
+          echo "<script language='javascript' type='text/javascript'>alert('Brak wybranej formy dokumentu'); </script>";
+          header('refresh: 1;');
+        }
+
 
     }
   ?>
+
+
 
 		<div class="container">
 
@@ -112,6 +123,7 @@
 
                 mysqli_close($db);
             ?>
+
 
               <a href="Klientokn.php" target="_blank" class="button"onclick="window.open('Klientokn.php', 'Nowe_okno', 'height=530,width=505');">Dodaj Rodzaj</a>
          </fieldset>
