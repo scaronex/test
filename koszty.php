@@ -93,9 +93,10 @@
 
 				  <fieldset>
             <div class="radio">
-  					       <input placeholder="Data" name="data" type="date" tabindex="1" required autofocus>
+  					       <input placeholder="Data" name="date_in" type="date" tabindex="1" required autofocus>
                    <input type="radio" name="rodzaj" value="1"> KP
                    <input type="radio" name="rodzaj" value="2"> KW
+                   <input type="radio" name="rodzaj" value="3" checked="checked">
             </div>
 				  </fieldset>
 				  <fieldset>
