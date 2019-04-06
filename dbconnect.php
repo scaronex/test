@@ -23,4 +23,5 @@ $kli="";
 $option="";
 $flg=0;
 $flg1=1;
+$test="";
 ?>
