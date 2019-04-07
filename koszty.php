@@ -39,10 +39,10 @@
      <li><a href="#">Raportu</a>
        <ul>
          <li><a href="raport1dana.php">Zgłoszenia</a></li>
-         <li><a href="#">Koszty</a></li>
+         <li><a href="raport2dana.php">Koszty</a></li>
        </ul>
       </li>
-      <li><a href="#">Ustawienia</a>
+      <li><a href="raport2dana.php">Ustawienia</a>
         <ul>
           <li><a href="slownikiopc.php">Grupy</a></li>
           <li><a href="slowniki.php">Słowniki</a></li>

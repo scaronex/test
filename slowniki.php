@@ -41,7 +41,7 @@
      <li><a href="#">Raportu</a>
        <ul>
          <li><a href="raport1dana.php">Zgłoszenia</a></li>
-         <li><a href="#">Koszty</a></li>
+         <li><a href="raport2dana.php">Koszty</a></li>
        </ul>
       </li>
       <li><a href="#">Ustawienia</a>

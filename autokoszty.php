@@ -39,7 +39,7 @@
      <li><a href="#">Raportu</a>
        <ul>
          <li><a href="raport1dana.php">Zgłoszenia</a></li>
-         <li><a href="#">Koszty</a></li>
+         <li><a href="raport2dana.php">Koszty</a></li>
        </ul>
       </li>
       <li><a href="#">Ustawienia</a>
@@ -58,7 +58,7 @@
   <?php
     if (isset($_POST['zapisz']))
     {
-      if ($_POST['rodzaj'] < 3) 
+      if ($_POST['rodzaj'] < 3)
        {
           $date_in =  $_POST['date_in'];
           $rodzaj =  $_POST['rodzaj'];
