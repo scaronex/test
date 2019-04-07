@@ -109,7 +109,7 @@
 
               mysqli_close($db);
           ?>
-          <a href="Klientokn.php" target="_blank" class="button"onclick="window.open('Klientokn.php', 'Nowe_okno', 'height=530,width=505');">Dodaj Klienta</a>
+          <a href="Klientokn.php" target="_blank" class="button"onclick="window.open('Klientokn.php', 'Nowe_okno', 'height=590,width=505');">Dodaj Klienta</a>
 
             </fieldset>
           <fieldset>
