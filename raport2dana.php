@@ -56,7 +56,7 @@
 
 <div class="container">
 
-        <form id="contact" action="raport1.php" method="post">
+        <form id="contact" action="raport2.php" method="post">
           <h3>Raport</h3>
           <h4>Raport zgłoszenia wg Daty</h4>
           <?php
