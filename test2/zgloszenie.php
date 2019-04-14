@@ -7,7 +7,6 @@
 </head>
 <body>
 
-
   <div class="menu">
     <div class="listwa">
         <div class="backbroundlogo"></div>
@@ -16,7 +15,7 @@
     </div>
 
     <ol>
-      <li><a href="#">Zgłoszeyuit6yutnia</a>
+      <li><a href="#">Zgłoszenia</a>
         <ul>
           <li><a href="zgloszenie.php">Zgłoszenia</a></li>
           <li><a href="klient.php">Klient</a></li>
