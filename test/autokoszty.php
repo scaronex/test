@@ -10,7 +10,7 @@
 
   <div class="menu">
     <div class="listwa">
-        <div class="backbrouddddndlogo"></div>
+        <div class="backbroundlogo"></div>
         <div class="logo"> </div>
 
     </div>
@@ -95,7 +95,7 @@
   					       <input placeholder="Data" name="date_in" type="date" tabindex="1" required autofocus>
                    <input type="radio" name="rodzaj" value="1"> KP
                    <input type="radio" name="rodzaj" value="2"> KW
-                   <input type="radio" name="rodzaj" value="3" checked="checked">
+                   <input type="radio" name="rodzaj" value="3" checked="checked"style="visibility: hidden">
             </div>
 				  </fieldset>
 				  <fieldset>
@@ -124,7 +124,7 @@
                 mysqli_close($db);
             ?>
 
-              <a href="Klientokn.php" target="_blank" class="button"onclick="window.open('slowniki.php', 'Nowe_okno', 'height=530,width=505');">Dodaj Rodzaj</a>
+              <a href="Klientokn.php" target="_blank" class="button"onclick="window.open('slownikiokn.php', 'Nowe_okno', 'height=342,width=505');">Dodaj Rodzaj</a>
          </fieldset>
 				  <fieldset>
 					<button name="zapisz" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
