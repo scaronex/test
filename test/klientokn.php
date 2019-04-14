@@ -108,6 +108,7 @@
           </fieldset>
           <fieldset>
             <button name="zapisz" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
+            parent.window.location.reload(http://localhost/test/zgloszenie.php);
           </fieldset>
         </form>
   </div>
