@@ -1,0 +1,22 @@
+<?php include('serwer.php') ?>
+<?php
+
+$link = mysql_connect(localhost, user, password) or die('Błąd: Nie można połączyć z MySQL!');
+
+mysql_select_db(baza) or die('Błąd: Nie można wybraż bazy danych!');
+
+$zapytanie = mysql_query ("SELECT klient FROM zgloszenie ORDER BY klient ASC");
+
+echo '<select name="dane">';
+
+echo '<option value="">Wybierz Firmę</option>';
+
+while($option = mysql_fetch_assoc($zapytanie)) {
+
+echo '<option value="'.$option['nazwa_firmy'].'">'.$option['nazwa_firmy'].'</option>';
+
+}
+
+echo '</select>';
+
+?>

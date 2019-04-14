@@ -1,0 +1,45 @@
+body
+{
+  background-color:#7FFFD4;
+}
+
+header
+{
+  background-color:white;
+  width: 100%;
+  display: inline-block;
+}
+
+
+ul li
+{
+list-style-type: none;
+margin: 0;
+padding: 0;
+display: inline-block;
+width: 120px;
+}
+
+
+
+
+.btn {
+
+  width: 100px;
+  padding: 10px;
+  font-size: 15px;
+  color: white;
+  background: #5F9EA0;
+  border: none;
+  border-radius: 5px;
+ }
+
+.logowanie {
+
+  height: 40px;
+  width: 93px;
+  padding: 5px 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid gray;
+}
