@@ -129,7 +129,7 @@
               <a href="Klientokn.php" target="_blank" class="button"onclick="window.open('slownikiokn.php', 'Nowe_okno', 'height=342,width=505');">Dodaj Rodzaj</a>
             </fieldset>
           <fieldset>
-					<button name="zapisz" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
+					<button name="zapisz" type="submit" id="contact-submit" data-submit="...Sending">Zapisz</button>
 				  </fieldset>
 				</form>
 		  </div>

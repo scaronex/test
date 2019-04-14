@@ -76,7 +76,7 @@
           </fieldset>
 
           <fieldset>
-            <button name="zapisz" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
+            <button name="zapisz" type="submit" id="contact-submit" data-submit="...Sending">Zapisz</button>
           </fieldset>
         </form>
   </div>

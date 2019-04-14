@@ -107,7 +107,7 @@
             <input placeholder=" Number Telefonu (optional)" name="tel" type="tel" tabindex="3" >
           </fieldset>
           <fieldset>
-            <button name="zapisz" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
+            <button name="zapisz" type="submit" id="contact-submit" data-submit="...Sending">Zapisz</button>
           </fieldset>
         </form>
   </div>
