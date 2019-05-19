@@ -22,9 +22,3 @@ var this_in =$(this),
 
 });
 })();
-
-
-//$('ul li').each(function($) {
-//    if ( i === 0 ) {
-//       $(this).addClass('decoration');
-//    }
