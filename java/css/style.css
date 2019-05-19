@@ -1,0 +1,23 @@
+.tooltip
+{
+  padding: 10px 15px 12px 15px;
+  border-radius: 7px;
+  background-color: black;
+  opacity: 1;
+  -webkit-transition:visibility 0.2s,opacity 0.1s;
+  transition: visibility 0.2s,opacity 0.1s;
+  position: absolute;
+  z-index: 9999;
+  font: 12px/1 Tahoma ,Arial ,sans-serif;
+  color: #fff;
+
+}
+.tooltip:after
+{
+content: "";
+display: block;
+width: 0;
+height: 0;
+margin-left:  -6px;
+border-style: solid;
+}
