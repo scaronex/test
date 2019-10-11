@@ -39,7 +39,7 @@
      <li><a href="#">Raportu</a>
        <ul>
          <li><a href="raport1dana.php">Zgłoszenia</a></li>
-         <li><a href="raport2dana.php">Koszty</a></li>
+         <li><a href="#">Koszty</a></li>
        </ul>
       </li>
       <li><a href="#">Ustawienia</a>
@@ -70,12 +70,37 @@
             $dowyk =  $_POST['dowyk'];
             $wyk=  $_POST['wyk'];
 
+                       /*Zgłoszenie zapis do bazy danych */
             $db = mysqli_connect($host, $login,$pass, $dbname) or die("Błąd połączenia !") ;
              mysqli_set_charset($db,"utf8");
-            $query = "INSERT INTO zgloszenie(data,czasod,czasdo,klient,dowyk,wyk)
-             VALUES('$data','$czasod','$czasdo','$klient','$dowyk','$wyk')";
-            mysqli_query($db, $query)or die("1") ;
 
+           $query = "INSERT INTO zgloszenie(data,czasod,czasdo,klient,dowyk,wyk)
+             VALUES('$data','$czasod','$czasdo','$klient','$dowyk','$wyk')";
+            mysqli_query($db, $query)or die("Błąd zapisu") ;
+
+
+                           /*Select id i zapis w bazie kasy */
+
+           $sql = "SELECT id from zgloszenie where id= (select MAX(id) from zgloszenie)";
+          $result= mysqli_query($db, $sql)or die("błąd 3") ;
+
+          $row1=(strtotime($czasdo))-(strtotime($czasod));
+          $row1=$row1/60;
+          $row2=$row1*(30/60);
+
+          if (mysqli_num_rows($result) > 0) {
+              // output data of each row
+              while($row = mysqli_fetch_assoc($result)) {
+                  $row3=  $row["id"];
+
+              }
+          } else
+          {
+              echo "0 results";
+          }
+            $query2 = "INSERT INTO kosztzlecenia(czaszadania,kosztzadania,idzgloszenia)
+             VALUES($row1,$row2,'$row3')";
+            mysqli_query($db, $query2)or die("Błąd zapisu") ;
             mysqli_close($db);
             }
 
@@ -109,7 +134,7 @@
 
               mysqli_close($db);
           ?>
-          <a href="Klientokn.php" target="_blank" class="button"onclick="window.open('Klientokn.php', 'Nowe_okno', 'height=590,width=505');">Dodaj Klienta</a>
+          <a href="Klientokn.php" target="_blank" class="button"onclick="window.open('Klientokn.php', 'Nowe_okno', 'height=530,width=505');">Dodaj Klienta</a>
 
             </fieldset>
           <fieldset>
