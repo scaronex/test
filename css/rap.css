@@ -1,5 +1,11 @@
-* {
-  margin: 0;
+h1
+{
+text-align: center;
+color: black;
+font-size: 50px;
+}
+*{
+margin: 0;
   padding: 0;
   box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -15,14 +21,22 @@
 th, td
 {
 text-align: center;
-border: 1px solid white;
+border: 3px solid blue;
 padding: 5px;
-font-size: 16px;
+font-size: 25px;
 color: black;
+border-collapse: collapse;
 }
 table
 {
-  border-spacing: 0px;
+  /*border-spacing: 0px;*/
+  border-collapse: collapse;
+  margin: 0 auto;
+  padding: 5px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border: 3px solid blue;
+  width: 1500px;
 }
 p
 {
