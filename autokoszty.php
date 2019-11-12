@@ -1,4 +1,14 @@
 <?php include('dbconnect.php')?>
+<?php
+// Initialize the session
+session_start();
+
+// Check if the user is logged in, if not then redirect him to login page
+if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
+    header("location: login.php");
+    exit;
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -47,6 +57,12 @@
           <li><a href="slownikiopc.php">Grupy</a></li>
           <li><a href="slowniki.php">Słowniki</a></li>
         </ul>
+      <li><a href="#"><font color="FDD700"> _</font></a></li>
+      <li><a href="#"><font color="FDD700"> _</font></a></li>
+      <li><a href="#"><font color="FDD700"> _</font></a></li>
+      <li><a href="#"><font color="FDD700"> _</font></a></li>
+       </li>
+       <li><a href="logout.php" >Wylogowanie </a>
        </li>
      </ol>
    </div>
@@ -68,9 +84,41 @@
 
           $db = mysqli_connect($host, $login,$pass, $dbname) or die("Błąd połączenia !") ;
           mysqli_set_charset($db,"utf8");
-          $query = "INSERT INTO koszty(date_in,fl_rodzaj,kwota,rodzaj_koszt)
+          $query = "INSERT INTO koszty(data,fl_rodzaj,kwota,rodzaj_koszt)
           VALUES('$date_in','$rodzaj','$kwota','$dane')";
-          mysqli_query($db, $query)or die("1") ;
+          mysqli_query($db, $query)or die("Brak zapisu do bazy błąd 1000023") ;
+
+
+                          /*rozliczenie salda po wpłacie
+
+
+          $sql = "SELECT id from zgloszenie where id= (select MAX(id) from zgloszenie)";
+         $result= mysqli_query($db, $sql)or die("błąd 3") ;
+
+         $row1=(strtotime($czasdo))-(strtotime($czasod));
+         $row1=$row1/60;
+         $row2=$row1*(30/60);
+
+         if (mysqli_num_rows($result) > 0) {
+             // output data of each row
+             while($row = mysqli_fetch_assoc($result)) {
+                 $row3=  $row["id"];
+
+             }
+         } else
+         {
+             echo "0 results";
+         }
+           $query2 = "INSERT INTO kosztzlecenia(czaszadania,kosztzadania,idzgloszenia)
+            VALUES($row1,$row2,'$row3')";
+           mysqli_query($db, $query2)or die("Błąd zapisu") ;
+           mysqli_close($db);
+           }
+
+ */
+
+
+
 
         }
       else
@@ -104,11 +152,11 @@
           <fieldset>
             <?php
 
-                $db = mysqli_connect($host, $login,$pass, $dbname) or die("Błąd połączenia !") ;
+                $db = mysqli_connect($host, $login,$pass, $dbname) or die("Błąd połączenia ! 1000024") ;
                  mysqli_set_charset($db,"utf8");
 
                 $q = ("SELECT * FROM slowniki WHERE opcja = 6 ORDER BY nazwa ASC");
-                $query=mysqli_query($db, $q)or die("błąd 3") ;
+                $query=mysqli_query($db, $q)or die("błąd 3 1000025") ;
 
                 ######### Pobieranie Danych #########
 

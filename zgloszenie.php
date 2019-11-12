@@ -1,4 +1,15 @@
 <?php include('dbconnect.php')?>
+
+<?php
+// Initialize the session
+session_start();
+
+// Check if the user is logged in, if not then redirect him to login page
+if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
+    header("location: login.php");
+    exit;
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -39,7 +50,7 @@
      <li><a href="#">Raportu</a>
        <ul>
          <li><a href="raport1dana.php">Zgłoszenia</a></li>
-         <li><a href="#">Koszty</a></li>
+         <li><a href="raport2dana.php">Koszty</a></li>
        </ul>
       </li>
       <li><a href="#">Ustawienia</a>
@@ -47,6 +58,12 @@
           <li><a href="slownikiopc.php">Grupy</a></li>
           <li><a href="slowniki.php">Słowniki</a></li>
         </ul>
+      <li><a href="#"><font color="FDD700"> _</font></a></li>
+      <li><a href="#"><font color="FDD700"> _</font></a></li>
+      <li><a href="#"><font color="FDD700"> _</font></a></li>
+      <li><a href="#"><font color="FDD700"> _</font></a></li>
+       </li>
+       <li><a href="logout.php" >Wylogowanie </a>
        </li>
      </ol>
    </div>
@@ -103,6 +120,8 @@
             mysqli_query($db, $query2)or die("Błąd zapisu") ;
             mysqli_close($db);
             }
+
+
 
           ?>
 

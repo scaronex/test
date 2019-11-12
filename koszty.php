@@ -1,4 +1,14 @@
 <?php include('dbconnect.php')?>
+<?php
+// Initialize the session
+session_start();
+
+// Check if the user is logged in, if not then redirect him to login page
+if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
+    header("location: login.php");
+    exit;
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -42,11 +52,17 @@
          <li><a href="raport2dana.php">Koszty</a></li>
        </ul>
       </li>
-      <li><a href="raport2dana.php">Ustawienia</a>
+      <li><a href="#">Ustawienia</a>
         <ul>
           <li><a href="slownikiopc.php">Grupy</a></li>
           <li><a href="slowniki.php">Słowniki</a></li>
         </ul>
+      <li><a href="#"><font color="FDD700"> _</font></a></li>
+      <li><a href="#"><font color="FDD700"> _</font></a></li>
+      <li><a href="#"><font color="FDD700"> _</font></a></li>
+      <li><a href="#"><font color="FDD700"> _</font></a></li>
+       </li>
+       <li><a href="logout.php" >Wylogowanie </a>
        </li>
      </ol>
    </div>
@@ -67,9 +83,9 @@
 
           $db = mysqli_connect($host, $login,$pass, $dbname) or die("Błąd połączenia !") ;
           mysqli_set_charset($db,"utf8");
-          $query = "INSERT INTO koszty(date_in,fl_rodzaj,kwota,rodzaj_koszt)
+          $query = "INSERT INTO koszty(data,fl_rodzaj,kwota,rodzaj_koszt)
           VALUES('$date_in','$rodzaj','$kwota','$dane')";
-          mysqli_query($db, $query)or die("1") ;
+          mysqli_query($db, $query)or die("Błąd wykonania zapytania do bazy danych 1000026") ;
 
         }
       else
