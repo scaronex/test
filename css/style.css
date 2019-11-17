@@ -453,3 +453,22 @@ fieldset {
 :-ms-input-placeholder {
   color: #888;
 }
+
+ input[type="myoption"]
+{
+  width: 75%;
+  border: 1px solid #ccc;
+  background: #FFF;
+  margin: 0 0 5px;
+  padding: 10px;
+
+}
+input[type="myvalue"]
+{
+ width: 24%;
+ border: 1px solid #ccc;
+ background: #FFF;
+ margin: 0 0 5px;
+ padding: 10px;
+
+}

@@ -86,15 +86,24 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
             $klient=  $_POST['dane'];
             $dowyk =  $_POST['dowyk'];
             $wyk=  $_POST['wyk'];
+            $Cennik=  $_POST['cennik'];
 
                        /*Zgłoszenie zapis do bazy danych */
             $db = mysqli_connect($host, $login,$pass, $dbname) or die("Błąd połączenia !") ;
              mysqli_set_charset($db,"utf8");
 
-           $query = "INSERT INTO zgloszenie(data,czasod,czasdo,klient,dowyk,wyk)
-             VALUES('$data','$czasod','$czasdo','$klient','$dowyk','$wyk')";
+           $query = "INSERT INTO zgloszenie(data,czasod,czasdo,klient,dowyk,wyk,cennik)
+             VALUES('$data','$czasod','$czasdo','$klient','$dowyk','$wyk','$Cennik')";
             mysqli_query($db, $query)or die("Błąd zapisu") ;
 
+                                    /*Wartośc opcji do rozliczenia  */
+
+           $sqlquery = "SELECT wartosc from slowniki where id=$Cennik";
+           $wynik= mysqli_query($db, $sqlquery)or die("błąd 3") ;
+
+           if (mysqli_num_rows($wynik) > 0) {
+            /* output data of each row*/
+           while($row = mysqli_fetch_assoc($wynik)) {$cena=  $row["wartosc"];}}
 
                            /*Select id i zapis w bazie kasy */
 
@@ -103,7 +112,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 
           $row1=(strtotime($czasdo))-(strtotime($czasod));
           $row1=$row1/60;
-          $row2=$row1*(30/60);
+          $row2=$row1*($cena/60);
 
           if (mysqli_num_rows($result) > 0) {
               // output data of each row
@@ -120,8 +129,6 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
             mysqli_query($db, $query2)or die("Błąd zapisu") ;
             mysqli_close($db);
             }
-
-
 
           ?>
 
@@ -154,6 +161,30 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
               mysqli_close($db);
           ?>
           <a href="Klientokn.php" target="_blank" class="button"onclick="window.open('Klientokn.php', 'Nowe_okno', 'height=530,width=505');">Dodaj Klienta</a>
+
+            </fieldset>
+            <fieldset>
+          <?php
+
+              $db = mysqli_connect($host, $login,$pass, $dbname) or die("Błąd połączenia !") ;
+               mysqli_set_charset($db,"utf8");
+
+              $q1 = ("SELECT * FROM slowniki where opcja=10 ORDER BY nazwa ASC");
+              $query1=mysqli_query($db, $q1)or die("błąd 3") ;
+
+              ######### Pobieranie Danych #########
+
+              echo '<select name="cennik">';
+              echo '<option value="1">Rodzaj Pracy</option>';
+              while($option1 = mysqli_fetch_assoc($query1))
+              {
+              echo '<option value="'.$option1['id'].'">'.$option1['nazwa'].'</option>';
+              $Cennik ='';
+              }
+              echo '</select>';
+
+              mysqli_close($db);
+          ?>
 
             </fieldset>
           <fieldset>

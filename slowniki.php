@@ -76,11 +76,12 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
   $opc =  $_POST['nazop'];
   $dane =  $_POST['dane'];
   $opis =  $_POST['opis'];
+  $wartosc=  $_POST['warop'];
 
   $db = mysqli_connect($host, $login,$pass, $dbname) or die("Błąd połączenia !") ;
    mysqli_set_charset($db,"utf8");
-  $query = "INSERT INTO slowniki(nazwa,opcja,opis)
-   VALUES('$opc','$dane','$opis')";
+  $query = "INSERT INTO slowniki(nazwa,opcja,opis,wartosc)
+   VALUES('$opc','$dane','$opis','$wartosc')";
   mysqli_query($db, $query)or die("1") ;
 
   }
@@ -90,10 +91,13 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
         <form id="contact" action="" method="post">
           <h3>Rodzaj</h3>
           <h4>Wprowadzanie Danych</h4>
-          <fieldset>
-            <input placeholder="Nazwa opcji" name="nazop" type="text" tabindex="1" required autofocus>
-          </fieldset>
+      <fieldset>
+        <input placeholder="Nazwa opcji" name="nazop" type="myoption" tabindex="1" required autofocus >
+         <input  placeholder="Wartość opcji" name="warop" type="myvalue" tabindex="1" required autofocus >
+      </fieldset>
+
             <fieldset>
+
     <?php
 
         $db = mysqli_connect($host, $login,$pass, $dbname) or die("Błąd połączenia !") ;
@@ -115,7 +119,11 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 
         mysqli_close($db);
     ?>
-      </fieldset>
+
+
+    </fieldset>
+
+          </fieldset>
           <fieldset>
             <input placeholder="Opis " name="opis" type="text" tabindex="1" required autofocus>
           </fieldset>
